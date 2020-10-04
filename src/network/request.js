@@ -6,4 +6,4 @@ import axios from 'axios'
           timeout:5000
       })
       return instance(config);
-  }
+  } 

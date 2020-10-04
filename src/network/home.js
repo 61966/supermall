@@ -1,6 +1,6 @@
 import {request} from 'network/request'
 
-export function getHomeMultidate()
+export function getHomeMultidata()
     {
         return request(
             {
@@ -8,3 +8,19 @@ export function getHomeMultidate()
             }
         )
     }
+
+
+
+export function getHomeGoodsdata(type,page)
+{
+    return request(
+        {
+            url:'home/data',
+            params:{
+                type,
+                page
+            }
+        }
+    )
+}
+
