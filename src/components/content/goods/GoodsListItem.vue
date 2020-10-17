@@ -1,8 +1,8 @@
 <template>
-  <div class="goods-list-item">
-    <img :src="goodslist.show.img" alt="" />
+  <div class="goods-list-item" >
+    <img :src="goodslist.show.img" alt="" @load="loadfinish" @click="goodsclick">
     <div class="goods-text">
-      <p >{{ goodslist.title }}</p>
+      <p @click="goodsclick">{{ goodslist.title }}</p>
       <span class="price">¥{{goodslist.price }}</span>
       <span class="cllect">{{goodslist.cfav}}</span>
     </div>
@@ -20,6 +20,22 @@ export default {
       },
     },
   },
+methods:{
+  loadfinish()
+  {
+    this.$bus.$emit('GoodsImgLoadEnd');
+  },
+  goodsclick()
+  {
+    console.log("跳转详情页");
+    this.$router.push({
+      path:'/detail',
+      query:{
+        id:this.goodslist.iid,
+      }
+    })
+  }
+}
 };
 </script>
 

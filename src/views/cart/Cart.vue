@@ -1,10 +1,13 @@
 <template>
-  <h1>购物车</h1>
+
+
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
 export default {
-    name:'Cart'
+    name:'Cart',
+
 }
 </script>
 

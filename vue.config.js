@@ -7,7 +7,7 @@ configureWebpack : {//不是等号，是冒号
             'content': '@/components/content',
             'components': '@/components',
             'network': '@/network',
-            'views': '@/views'
+            'views': '@/views',
         }
     }
 }

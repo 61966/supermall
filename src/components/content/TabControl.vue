@@ -28,6 +28,7 @@ export default {
         itemclick(index)
         {
             this.currentIndex=index;
+            this.$emit('tabclick',index)
         }
     }
 }
@@ -35,14 +36,12 @@ export default {
 
 <style>
 #tab-control{
-    z-index: 9;
     display: flex;
     text-align: center;
     font-size: 14px;
     height: 34px;
     line-height: 34px; 
-     top:44px;
-    position: sticky;
+
     background-color: white;
 }
 .tab-control-item{

@@ -30,7 +30,8 @@ export default {
     text-align: center;
     font-size: 13px;
     padding:10px 0px 20px 0px;
-    border-bottom: 8px solid rgb(182, 182, 182);
+  border-bottom:16px solid rgba(226, 226, 226, 0.6) ;
+
 }
 #home-recommend img{
     width: 80%;
