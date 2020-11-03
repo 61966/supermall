@@ -41,13 +41,15 @@ export default {
     },methods:{
         ImageLoad()
         {
-            if(this.imglength++ == this.length)
-            this.$emit('goodsimageload');
+            if(++this.imglength === this.length)
+            {
+                this.$bus.$emit('GoodsImgLoadEnd');//图片加载完成
+            }
         }
     }
     ,watch:
     {
-        length(num)
+       goods:function(num)
         {
            return this.length=this.goods.list.length;
         }

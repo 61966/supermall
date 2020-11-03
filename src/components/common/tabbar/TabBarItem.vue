@@ -22,7 +22,12 @@ export default {
     methods:{
         itemClick()
         {
-            this.$router.replace(this.path)
+    //         if(this.$store.state.session==false && (this.path == '/profile' || this.path=='/cart'))
+    //         {
+    //             this.$router.replace('/login')  
+    //         }
+    //    else 
+       this.$router.replace(this.path)
             // .catch(err=>{console.log(err)})//解决报错冗余导航
         }
        
@@ -40,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* .tab-bar-item */
   .tab-bar-item{
     flex: 1;

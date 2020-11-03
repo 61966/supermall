@@ -4,7 +4,7 @@
     <div class="info-price">
       <span class="real-price">{{ base.realPrice }}</span>
       <span class="old-price">{{ base.oldPrice }}</span>
-      <span class="count-price">{{ base.discount }}</span>
+      <span class="count-price" v-if="base.discount ">{{base.discount }}</span>
     </div>
     <div class="info-other">
       <span

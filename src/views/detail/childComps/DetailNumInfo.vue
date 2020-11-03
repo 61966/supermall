@@ -68,5 +68,6 @@ export default {
 .active{
     color: var(  --color-high-text);
     flex-grow:2;
+    border: none;
 }
 </style>

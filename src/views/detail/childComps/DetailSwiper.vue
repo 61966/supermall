@@ -1,7 +1,7 @@
 <template>
   <swiper class="detail-swiper">
       <swiper-item v-for="(item,index) in topImages" :key="index">
-          <img :src="item" alt="" >
+          <img :src="item" alt="" @load="SwiperImage" >
       </swiper-item>
   </swiper>
 </template>
@@ -20,10 +20,26 @@ export default {
             default:[],
         }
     },
+    data()
+    {
+        return {
+            imglength:-1
+        }
+    }
+    ,
+    methods:{
+        SwiperImage()
+        {
+            if(++this.imglength==0)
+            {
+                 this.$bus.$emit('GoodsImgLoadEnd');//图片加载完成
+            }
+        }
+    }
 }
 </script>
 
-<style>
+<style scoped>
 .detail-swiper{
     height: 300px;
     overflow: hidden;

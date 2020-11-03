@@ -7,11 +7,13 @@
             alt=""
           />
       </div>
-      <div slot="center" class="title">
+      <div slot="center" class="title" >
         <span
           v-for="(item, index) in titleInfos"
           :key="index"
           class="title-item"
+          :class="{active:currentIndex==index}"
+          @click="itemclick(index)"
           >{{ item }}</span
         >
       </div>
@@ -26,6 +28,15 @@ export default {
   components: {
     NavBar,
   },
+  props:{
+    currentIndex:{
+      type:Number,
+      default()
+      {
+        return 0;
+      }
+    }
+  },
   data() {
     return {
       titleInfos: ["商品", "参数", "评论", "推荐"],
@@ -36,20 +47,27 @@ export default {
       {
           history.back();
       }
+      ,itemclick(index)
+      {
+        this.$emit("navbarclick",index)
+      }
   }
 
 };
 </script>
 
-<style>
+<style scoped>
 #detail-navbar {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #999;
   background-color: white;
   position: relative;
   z-index: 444;
 }
 .title {
   display: flex;
+}
+.title span{
+  border: none;
 }
 .title-item {
   flex: 1;
@@ -62,5 +80,7 @@ export default {
   justify-content:center;
   height: 44px;
 }
-
+.active{
+  color: var( --color-high-text);
+}
 </style>

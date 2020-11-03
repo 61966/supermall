@@ -11,11 +11,19 @@ export function detail(iid) {
     }
   })
 }
+export function recommend(iid) {
+  return request({
+    url: '/recommend',
+    params: {
+      iid,
+    }
+  })
+}
 
 export class BaseInfo{
   constructor(item,columes,service)
   {
-    this.realPrice=item.price;
+    this.realPrice=item.lowNowPrice;
     this.title=item.title;
     this.oldPrice=item.oldPrice;
     this.discount=item.discountDesc;
@@ -60,5 +68,6 @@ export class ShopInfo{
       this.text=recomend.content;
       this.style=recomend.style;
       this.time=recomend.created;
+      this.list=recomend.images;
     }
   }

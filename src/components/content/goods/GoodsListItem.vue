@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list-item" >
-    <img :src="goodslist.show.img" alt="" @load="loadfinish" @click="goodsclick">
+    <img :src="showimg" alt="" @load="loadfinish" @click="goodsclick">
     <div class="goods-text">
       <p @click="goodsclick">{{ goodslist.title }}</p>
       <span class="price">¥{{goodslist.price }}</span>
@@ -20,6 +20,12 @@ export default {
       },
     },
   },
+  computed:{
+    showimg()
+    {
+       return this.goodslist.img || this.goodslist.image || this.goodslist.show.img
+    }
+  },
 methods:{
   loadfinish()
   {
@@ -28,18 +34,22 @@ methods:{
   goodsclick()
   {
     console.log("跳转详情页");
-    this.$router.push({
+    if(this.$route.path !='/detail')
+    { 
+       this.$router.push({
       path:'/detail',
       query:{
         id:this.goodslist.iid,
       }
     })
+    }
+  
   }
 }
 };
 </script>
 
-<style>
+<style scoped>
 .goods-list-item {
   position: relative;
   width: 44%;

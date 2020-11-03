@@ -7,6 +7,9 @@
   --color-background: #fff;
   --font-size: 14px;
   --line-height: 1.5;
+  --color-border:rgba(226, 226, 226, 0.6);
+  --color-chat01:rgb(244,179,179);
+  --color-chat02:rgb(160,217,246);
 }
 
 *,
